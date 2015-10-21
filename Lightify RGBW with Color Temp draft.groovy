@@ -11,6 +11,8 @@
  *  for the specific language governing permissions and limitations under the License.
  *
  */
+ /** Taken from sticks18 Lightify driver **/
+ 
 /* Color Zigbee plus Color Temp
 
 Capabilities:
@@ -25,11 +27,14 @@ Capabilities:
   
 Custom Commands:
   setAdjustedColor
-    
+
+Raw Device
+03 C05E 0210 02 0A 1000 0000 0003 0004 0005 0006 0008 0300 FC04 FC0F 01 0019
+
 */
 
 metadata {
-	definition (name: "Zigbee RGBW Bulb", namespace: "smartthings", author: "SmartThings") {
+	definition (name: "Osram Lightify RGBW Bulb", namespace: "smartthings", author: "SmartThings") {
 		capability "Switch Level"
 		capability "Actuator"
 		capability "Color Control"
@@ -47,7 +52,7 @@ metadata {
         attribute "colorName", "string"
         attribute "colorMode", "string"
 
-		fingerprint profileId: "0104", inClusters: "0000,0003,0004,0005,0006,0008,0300,1000", outClusters: "0019"
+		fingerprint profileId: "C05E", inClusters: "0000,0003,0004,0005,0006,0008,0300,1000", outClusters: "0019"
 	}
 
 	// simulator metadata
